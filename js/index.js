@@ -12,18 +12,28 @@ bodyVar.addEventListener('wheel', () => {
         }
     }     
 }, false)
+
 //nav
-const headerBar = document.querySelector('header')
+const headerBar = document.querySelector('.main-navigation .nav-container')
 headerBar.style.zIndex = '1';
 headerBar.style.transition = '.3s';
 //event listener 2 - mousemove
-headerBar.addEventListener('mousemove', () => {
+headerBar.addEventListener('mouseover', (ev) => {
     headerBar.style.backgroundColor = 'pink'
 })
 //event listener 3 - mouseleave
 headerBar.addEventListener('mouseleave', (ev) => {
-    ev.target.style.backgroundColor = '';
+    ev.target.style.backgroundColor = '';    
 })
+
+
+let logo = document.querySelector('.logo-heading');
+logo.addEventListener('mouseover', (ev) => {
+    ev.target.style.fontSize = '48px';
+    ev.target.style.transition = '2s'
+})
+
+
 const anchors = document.querySelectorAll('a')
 anchors.forEach( links => {
     links.style.color = 'red';
@@ -43,6 +53,7 @@ anchors.forEach( links => {
         ev.preventDefault();
     })
 })
+
 //main content
 let images = document.querySelectorAll('img')
 images.forEach( imgs => {
@@ -62,6 +73,8 @@ images.forEach( imgs => {
         ev.target.style.transition = '2s';
     })
 })
+
+
 let mainContentH2 = document.querySelectorAll('.container h2')
 console.log(mainContentH2)
 mainContentH2.forEach( h => {
@@ -79,18 +92,22 @@ mainContentH2.forEach( h => {
         h.style.opacity = '1'
     })
 })
+
+
 let mainContentP = document.querySelectorAll('.container p')
 mainContentP.forEach( txt => {
     txt.addEventListener('contextmenu', (ev) => {
         ev.preventDefault();
     })    
 })
+
+
 let columnPara = document.querySelectorAll('.content-pick .destination p')
 columnPara.forEach( p => {
     //query selector 10 - pointerenter
     p.addEventListener('pointerenter', (ev) => {        
         p.style.textDecoration = 'underline'
-        //ev.stopPropagation();
+        ev.stopPropagation();
      })
      //query selector 11 - pointerleave
      p.addEventListener('pointerleave', (ev) => {
